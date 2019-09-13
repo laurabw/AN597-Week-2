@@ -754,7 +754,7 @@ a
 [5,]   21   16   11    6    1</code></pre>
 <p>Whew!!!</p>
 <p>Okay, now to the other questions:</p>
-<p><strong>Directions, continued:</strong> *Given the matrix, what would the following return?</p>
+<p><strong>Directions, continued:</strong> <em>Given the matrix, what would the following return?</em></p>
 <pre><code>1) a[1, 1, 1, 2]
 
 [1] 300
@@ -772,8 +772,8 @@ a
 [4,]  147  142  137  132  127
 [5,]  146  141  136  131  126</code></pre>
 </div>
-<div id="module-4-challenge-3-1" class="section level2">
-<h2>Module 4: Challenge 3</h2>
+<div id="module-4-challenge-4" class="section level2">
+<h2>Module 4: Challenge 4</h2>
 <p><strong>Directions:</strong> <em>Create a list representing this (simplified) primate taxonomy.</em></p>
 <p>Primate time! Yay!</p>
 <p>So, worked through this a lot, and was able to nest all the different taxonomic levels within their appropriate hierarchies, but the final primate list just lists all the elements of all the other lists. Which is great, but it would be interesting to see how you could maybe make something that would also show these intermediate levels? Either way, here was what my code looked like:</p>
@@ -839,7 +839,53 @@ a
 
 [7] &quot;Tarsiidae&quot;      &quot;Lorisidae&quot;      &quot;Galagidae&quot;      &quot;Cheirogaleidae&quot; &quot;Lepilemuridae&quot;  &quot;Indriidae&quot;     
 
-[13]&quot;Lemuridae&quot;      &quot;Daubentoniidae&quot;    
+[13]&quot;Lemuridae&quot;      &quot;Daubentoniidae&quot;    </code></pre>
+</div>
+<div id="module-4-challenge-5" class="section level2">
+<h2>Module 4: Challenge 5</h2>
+<p><strong>Directions:</strong> <em>Store the following numbers as a 5 x 3 matrix: 3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2. Be sure to fill the matrix ROWWISE</em></p>
+<pre><code>&gt; challenge_five &lt;-matrix(data=c(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2),nrow=5,ncol=3,byrow=TRUE)
+
+&gt; challenge_five
+
+      [,1] [,2] [,3]
+[1,]    3    0    1
+[2,]   23    1    2
+[3,]   33    1    1
+[4,]   42    0    1
+[5,]   41    0    2</code></pre>
+<p><strong>Directions, continued:</strong> <em>Then, do the following:</em></p>
+<pre><code>1) Coerce the matrix to a data frame.*
+
+&gt; df_five &lt;-as.data.frame(as.matrix(challenge_five))
+
+&gt; df_five
+
+  V1 V2 V3
+1  3  0  1
+2 23  1  2
+3 33  1  1
+4 42  0  1
+5 41  0  2
+
+2) As a data frame, coerce the second column to be logical-valued*
+
+&gt; new_df &lt;- df_five[df_five$V2 == &quot;0&quot;,]
+
+&gt; new_df
+
+    V1 V2 V3
+1  3  0  1
+4 42  0  1
+5 41  0  2
+
+Not sure if this is exactly what we were trying to get at? But returned only those with &quot;0&quot; in V2
+
+3) As a data frame, coerce the third column to be factor-valued*
+
+Honestly, not sure what to do for this one? I looked up a bunch of information for factor and it seems like 
+I need to use an &quot;as.factor&quot; in there somewhere but not sure what the whole line of code would like? Will need to
+look at this further.
       </code></pre>
 </div>
 </div>

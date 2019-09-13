@@ -428,5 +428,148 @@ Again, errors when knitted to html, but here are the results in Rstudio workspac
     [4,]   22   17   12    7    2
     [5,]   21   16   11    6    1
     
+Whew!!! 
+
+Okay, now to the other questions:
+
+**Directions, continued:** *Given the matrix, what would the following return?*
+
+    1) a[1, 1, 1, 2]
+   
+    [1] 300
     
+    2) a[2, 3, 2, ]
+    
+    [1] 364 264 164  64
+    
+    3) a[1:5, 1:5, 3, 3]
+    
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  150  145  140  135  130
+    [2,]  149  144  139  134  129
+    [3,]  148  143  138  133  128
+    [4,]  147  142  137  132  127
+    [5,]  146  141  136  131  126
+    
+## Module 4: Challenge 4
+
+**Directions:** *Create a list representing this (simplified) primate taxonomy.*
+    
+Primate time! Yay!
+
+So, worked through this a lot, and was able to nest all the different taxonomic levels within their appropriate hierarchies, but the final primate list just lists all the elements of all the other lists. Which is great, but it would be interesting to see how you could maybe make something that would also show these intermediate levels? Either way, here was what my code looked like:
+
+    > Platyrrhini <-c("Cebidae, Atelidae, Pitheciidae")
+    
+    > Platyrrhini
+    
+    [1] "Cebidae, Atelidae, Pitheciidae"
+    
+    > Platyrrhini <-c("Cebidae", "Atelidae", "Pitheciidae")
+    
+    > Platyrrhini
+    
+    [1] "Cebidae"     "Atelidae"    "Pitheciidae"
+    
+    > Catarrhini <-c("Cercopthecidae", "Hylobatidae", "Hominoidae")
+    
+    > Catarrhini
+    
+    [1] "Cercopthecidae" "Hylobatidae"    "Hominoidae"  
+    
+    > Anthropoidea <-c(Platyrrhini, Catarrhini)
+    
+    > Anthropoidea
+    
+    [1] "Cebidae"        "Atelidae"       "Pitheciidae"    "Cercopthecidae" "Hylobatidae"    "Hominoidae"  
+    
+    > Tarsioidea <-c("Tarsiidae")
+    
+    > Haplorhini <-c(Anthropoidea, Tarsioidea)
+    
+    > Haplorhini
+    
+    [1] "Cebidae"        "Atelidae"       "Pitheciidae"    "Cercopthecidae" "Hylobatidae"    "Hominoidae"    
+    
+    [7] "Tarsiidae"     
+    
+    > Lorisoidea <-c("Lorisidae", "Galagidae")
+    
+    > Lorisoidea
+    
+    [1] "Lorisidae" "Galagidae"
+    
+    > Lemuroidea <-c("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
+    
+    > Lemuroidea
+
+    [1] "Cheirogaleidae" "Lepilemuridae"  "Indriidae"      "Lemuridae"      "Daubentoniidae"
+
+    > Strepsirhini <-c(Lorisoidea, Lemuroidea)
+
+    > Strepsirhini
+    
+    [1] "Lorisidae"      "Galagidae"      "Cheirogaleidae" "Lepilemuridae"  "Indriidae"      "Lemuridae"     
+    
+    [7] "Daubentoniidae"
+    
+    > Primates <-c(Haplorhini, Strepsirhini)
+    
+    > Primates
+    
+    [1] "Cebidae"        "Atelidae"       "Pitheciidae"    "Cercopthecidae" "Hylobatidae"    "Hominoidae"    
+ 
+    [7] "Tarsiidae"      "Lorisidae"      "Galagidae"      "Cheirogaleidae" "Lepilemuridae"  "Indriidae"     
+
+    [13]"Lemuridae"      "Daubentoniidae"    
+    
+## Module 4: Challenge 5
+
+**Directions:** *Store the following numbers as a 5 x 3 matrix: 3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2. Be sure to fill the matrix ROWWISE*
+
+    > challenge_five <-matrix(data=c(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2),nrow=5,ncol=3,byrow=TRUE)
+    
+    > challenge_five
+    
+          [,1] [,2] [,3]
+    [1,]    3    0    1
+    [2,]   23    1    2
+    [3,]   33    1    1
+    [4,]   42    0    1
+    [5,]   41    0    2
+    
+**Directions, continued:** *Then, do the following:*
+
+    1) Coerce the matrix to a data frame.*
+    
+    > df_five <-as.data.frame(as.matrix(challenge_five))
+    
+    > df_five
+    
+      V1 V2 V3
+    1  3  0  1
+    2 23  1  2
+    3 33  1  1
+    4 42  0  1
+    5 41  0  2
+    
+    2) As a data frame, coerce the second column to be logical-valued*
+    
+    > new_df <- df_five[df_five$V2 == "0",]
+    
+    > new_df
+    
+        V1 V2 V3
+    1  3  0  1
+    4 42  0  1
+    5 41  0  2
+    
+    Not sure if this is exactly what we were trying to get at? But returned only those with "0" in V2
+    
+    3) As a data frame, coerce the third column to be factor-valued*
+    
+    Honestly, not sure what to do for this one? I looked up a bunch of information for factor and it seems like 
+    I need to use an "as.factor" in there somewhere but not sure what the whole line of code would like? Will need to
+    look at this further.
+          
     
