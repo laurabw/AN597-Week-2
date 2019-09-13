@@ -571,5 +571,25 @@ So, worked through this a lot, and was able to nest all the different taxonomic 
     Honestly, not sure what to do for this one? I looked up a bunch of information for factor and it seems like 
     I need to use an "as.factor" in there somewhere but not sure what the whole line of code would like? Will need to
     look at this further.
-          
     
+**FIVE BIGGEST CHALLENGES**
+
+1. Not sure why I had an error when I attempted to knit R chunks into R Markdown. It shows that the chunk runs
+
+successfully in the R Studio workspace and on the console and that the values are saved in the Environment, but then
+
+an error saying that the object is not found.
+
+2. Learning R syntax. It is not inutiitve and I feel like I have to learn the syntax for each command and even 
+
+reading the help documents still leaves a lot of questions.
+
+3. Knowing what to google to answer questions. I just do not know enough yet to even know what to google!
+
+4. The last parts of Challenge 5. I googled how to "coerce columns," etc. and found some information. Seemed I needed
+
+to do something with "as.logic," and "as.factor" but again, not sure what all of the elements of the syntax for this 
+
+should be.
+
+5. Was not able to do a list with levels for the Primate taxonomy challenge.
