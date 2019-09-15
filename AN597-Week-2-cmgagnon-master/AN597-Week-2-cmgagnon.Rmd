@@ -1,0 +1,137 @@
+---
+title: "AN597_Week2"
+author: "Christian Gagnon"
+date: "9/11/2019"
+output: html_document
+---
+
+hi!
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Module 4
+
+
+##Challenge 1
+Input data into R.
+```{r}
+u <- "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
+u
+```
+Remove punctuations.
+```{r}
+v <- gsub("[[:punct:]]","",u)
+v
+```
+Split my string into substrings.
+```{r}
+w <- strsplit(v," ")[[1]]
+w
+```
+Formating my string into a matrix where each word is a seperate row.
+```{r}
+z<-matrix(w, nrow = 22 , ncol = 1)
+z
+```
+
+Obtaining every 3rd character by specifying every 3rd row.
+```{r}
+z[c(3,6,9,12,15,18,21)]
+```
+
+
+
+##Challenge 2
+
+This is the matrix we are given:
+```{r}
+m <- matrix(data=1:80,nrow=8,ncol=10,byrow=FALSE,)
+m
+```
+
+Create 2 vectors which we can then bind together to end up with columns 2,3, and 6.
+```{r}
+x1<-m[1:8,2:3]
+x1
+x2<-m[1:8,6]
+x2
+x<-cbind(x1,x2)
+x
+```
+
+This gives us all of rows 6 through 9:
+```{r}
+x<-m[6:8,1:9]
+x
+```
+
+This gives us from row 2, column 2 to row 6, column 9:
+```{r}
+m
+x<-m[2:6,2:9]
+x
+```
+
+##Challenge 3
+
+Creating an array with the number 400 to 1 in decending order and dimensions of 5x5x4x4:
+```{r}
+a<-array(data=400:1, dim=c(5,5,4,4))
+a
+```
+
+follow up questions (What do these return):
+```{r}
+a[1, 1, 1, 2]
+```
+
+```{r}
+a[2, 3, 2, ]
+```
+
+```{r}
+a[1:5, 1:5, 3, 3]
+```
+
+#Challenge 4
+This one is hard, I'm not sure if this is what he is looking for:
+```{r}
+a<-list("Primates",
+        "Haplorhini",
+        "Anthropoidea",
+        "Platyrrhini",
+        c("Cebidae","Atelidae","Pitheciidae"),
+        "Catarrhini",
+        c("Cercopithecidae","Hylobatidae","Hominidae"),
+        "Tarsioidea",
+        "Tarsiidae",
+        "Strepsirhini",
+        "Lorisoidea",
+        c("Lorisidae","Galagidae"),
+        "Lemuroidea",
+        c("Cheirogaleidae","Lepilemuridae","Indriidae","Lemuridae","Daubentoniidae"))
+a
+```
+
+Create the 5x3 matrix ordered by row using the provided number
+```{r}
+b<-matrix(c(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2),nrow=5,ncol=3,byrow=TRUE)
+b
+```
+
+Coerce into a data frame:
+```{r}
+df <- data.frame(b)
+df
+```
+
+Convert column 2 to logical and column 3 to factor
+```{r}
+as.logical(df$X2)
+as.factor(df$X3)
+str(df)
+
+```
+
