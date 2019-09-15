@@ -1,0 +1,614 @@
+---
+title: "Homework 1"
+author: "Laura Brubaker-Wittman"
+date: "9/12/2019"
+output: html_document
+---
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = FALSE, error = TRUE)
+```
+
+# R Markdown
+## Module 4: Challenge 1
+
+**Directions:** *First, create a vector of 1 word character strings comprising the first line of the novel Ulysses, by James Joyce: “Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed.”*
+
+For this, I made a vector with each of the words in the sentence as a different element:
+``` {r} ulysses <- c("Stately", "plump", "Buck", "Mulligan", "came", "from", "the", "stairhead", "bearing", "a", "bowl", "of", "lather", "on", "which", "a", "mirror", "and", "a", "razor", "lay", "crossed")
+ulysses
+```
+Since when I knit to html I am getting an error for some reason, even though it is showing in my workspace (will put that as one of my biggest challenges), here is what my code looks like (also, if you open on this in R studio and not html, you should be able to see the code chunk and run it to see that it works:
+
+    ulysses <- c("Stately", "plump", "Buck", "Mulligan", "came", "from", "the", "stairhead", "bearing", "a", "bowl", "of", "lather", "on", "which", "a", "mirror", "and", "a", "razor", "lay", "crossed")
+
+    ulysses
+
+    [1] "Stately"   "plump"     "Buck"      "Mulligan"  "came"      "from"      "the"       "stairhead" "bearing"
+    [10] "a"         "bowl"      "of"        "lather"    "on"        "which"     "a"         "mirror"    "and"
+    [19] "a"         "razor"     "lay"       "crossed"
+
+**Directions, continued:** *Then, extract every third element of this vector.*
+
+#instead of writing out every word, you can create a list using the list() function. Then copy and paste the line into the list function. Next you can use the stringr package to split the string up. This saves a lot of typing.
+
+While I did read the hints, because I had already written the string as separate characters and R Studio showed me that it was a 22 element vector in the "values" section of the "Environment" tab, I simply asked wrote a command to bring up every third element manually:
+
+```{r} ulysses_third_word <- c(3, 6, 9, 12, 15, 18, 21)
+ulysses[ulysses_third_word]
+```
+More errors in the Rmarkdown html, but here is what it looks like in the workspace on R studio:
+
+    ulysses_third_word <- c(3, 6, 9, 12, 15, 18, 21)
+
+    ulysses[ulysses_third_word]
+
+    [1] "Buck"    "from"    "bearing" "of"      "which"   "and"     "lay"
+#smart. I created a vector instead with three columns and extracted the third column. Honestly this looks easier.
+
+I am guessing there are more efficient ways to do this, but hey, this worked!
+
+## Module 4: Challenge 2
+
+**Directions:** *Using this matrix (again errors, and sorry the written out one looks so awful):*
+
+#yo I don't understand knitting at all anyway and this is very readable so you are alllll good.
+
+```{r m <- matrix(data=1:80,nrow=8,ncol=10,byrow=FALSE)}
+m
+```
+
+    m <- matrix(data=1:80,nrow=8,ncol=10,byrow=FALSE)
+
+    m
+
+          [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+    [1,]    1    9   17   25   33   41   49   57   65    73
+    [2,]    2   10   18   26   34   42   50   58   66    74
+    [3,]    3   11   19   27   35   43   51   59   67    75
+    [4,]    4   12   20   28   36   44   52   60   68    76
+    [5,]    5   13   21   29   37   45   53   61   69    77
+    [6,]    6   14   22   30   38   46   54   62   70    78
+    [7,]    7   15   23   31   39   47   55   63   71    79
+    [8,]    8   16   24   32   40   48   56   64   72    80
+
+**Directions, continued:** *Given the matrix, m, above, extract the 2nd, 3rd, and 6th columns and assign them to the variable x*
+
+```{r x <-m[,c(2,3,6)]}
+x
+```
+Again, errors when knitted to html, but here are the results in Rstudio workspace:
+
+    x <-m[,c(2,3,6)]
+
+    x
+
+          [,1] [,2] [,3]
+
+    [1,]    9   17   41
+    [2,]   10   18   42
+    [3,]   11   19   43
+    [4,]   12   20   44
+    [5,]   13   21   45
+    [6,]   14   22   46
+    [7,]   15   23   47
+    [8,]   16   24   48
+
+**Directions, continued:** *Given the matrix, m, above, extract the 6th to 8th row and assign them to the variable x*
+
+```{r x <-m[c(6:8),]}
+x
+```
+
+Again, errors when knitted to html, but here are the results in Rstudio workspace:
+
+    x <-m[c(6:8),]
+
+    x
+
+          [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+    [1,]    6   14   22   30   38   46   54   62   70    78
+    [2,]    7   15   23   31   39   47   55   63   71    79
+    [3,]    8   16   24   32   40   48   56   64   72    80
+
+**Directions, continued:** *Given the matrix, m, above, extract the elements from row 2, column 2 to row 6, column 9 and assign them to the variable x*
+
+```{r x <-m [2:6,2:9]}
+x
+```
+
+Again, errors when knitted to html, but here are the results in Rstudio workspace:
+
+    r x <-m [2:6,2:9]
+
+    x
+
+          [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]
+    [1,]   10   18   26   34   42   50   58   66
+    [2,]   11   19   27   35   43   51   59   67
+    [3,]   12   20   28   36   44   52   60   68
+    [4,]   13   21   29   37   45   53   61   69
+    [5,]   14   22   30   38   46   54   62   70
+
+## Module 4: Challenge 3
+
+**Directions:** *Construct a 4-dimensional, 400 element array (5 x 5 x 4 x 4) named* **a** *consisting of the numbers 400 to 1 (i.e., a descending series)*
+
+```{r a <- array(data=400:1, dim=c(5,5,4,4))}
+a
+```
+
+Again, errors when knitted to html, but here are the results in Rstudio workspace:
+
+    a <- array(data=400:1, dim=c(5,5,4,4))
+
+    a
+
+    , , 1, 1
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  400  395  390  385  380
+    [2,]  399  394  389  384  379
+    [3,]  398  393  388  383  378
+    [4,]  397  392  387  382  377
+    [5,]  396  391  386  381  376
+
+    , , 2, 1
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  375  370  365  360  355
+    [2,]  374  369  364  359  354
+    [3,]  373  368  363  358  353
+    [4,]  372  367  362  357  352
+    [5,]  371  366  361  356  351
+
+    , , 3, 1
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  350  345  340  335  330
+    [2,]  349  344  339  334  329
+    [3,]  348  343  338  333  328
+    [4,]  347  342  337  332  327
+    [5,]  346  341  336  331  326
+
+    , , 4, 1
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  325  320  315  310  305
+    [2,]  324  319  314  309  304
+    [3,]  323  318  313  308  303
+    [4,]  322  317  312  307  302
+    [5,]  321  316  311  306  301
+
+    , , 1, 2
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  300  295  290  285  280
+    [2,]  299  294  289  284  279
+    [3,]  298  293  288  283  278
+    [4,]  297  292  287  282  277
+    [5,]  296  291  286  281  276
+
+    , , 2, 2
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  275  270  265  260  255
+    [2,]  274  269  264  259  254
+    [3,]  273  268  263  258  253
+    [4,]  272  267  262  257  252
+    [5,]  271  266  261  256  251
+
+    , , 3, 2
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  250  245  240  235  230
+    [2,]  249  244  239  234  229
+    [3,]  248  243  238  233  228
+    [4,]  247  242  237  232  227
+    [5,]  246  241  236  231  226
+
+    , , 4, 2
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  225  220  215  210  205
+    [2,]  224  219  214  209  204
+    [3,]  223  218  213  208  203
+    [4,]  222  217  212  207  202
+    [5,]  221  216  211  206  201
+
+    , , 1, 3
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  200  195  190  185  180
+    [2,]  199  194  189  184  179
+    [3,]  198  193  188  183  178
+    [4,]  197  192  187  182  177
+    [5,]  196  191  186  181  176
+
+    , , 2, 3
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  175  170  165  160  155
+    [2,]  174  169  164  159  154
+    [3,]  173  168  163  158  153
+    [4,]  172  167  162  157  152
+    [5,]  171  166  161  156  151
+
+    , , 3, 3
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  150  145  140  135  130
+    [2,]  149  144  139  134  129
+    [3,]  148  143  138  133  128
+    [4,]  147  142  137  132  127
+    [5,]  146  141  136  131  126
+
+    , , 4, 3
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  125  120  115  110  105
+    [2,]  124  119  114  109  104
+    [3,]  123  118  113  108  103
+    [4,]  122  117  112  107  102
+    [5,]  121  116  111  106  101
+
+    , , 1, 4
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  100   95   90   85   80
+    [2,]   99   94   89   84   79
+    [3,]   98   93   88   83   78
+    [4,]   97   92   87   82   77
+    [5,]   96   91   86   81   76
+
+    , , 2, 4
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]   75   70   65   60   55
+    [2,]   74   69   64   59   54
+    [3,]   73   68   63   58   53
+    [4,]   72   67   62   57   52
+    [5,]   71   66   61   56   51
+
+    , , 3, 4
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]   50   45   40   35   30
+    [2,]   49   44   39   34   29
+    [3,]   48   43   38   33   28
+    [4,]   47   42   37   32   27
+    [5,]   46   41   36   31   26
+
+    , , 4, 4
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]   25   20   15   10    5
+    [2,]   24   19   14    9    4
+    [3,]   23   18   13    8    3
+    [4,]   22   17   12    7    2
+    [5,]   21   16   11    6    1
+
+    > a
+    , , 1, 1
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  400  395  390  385  380
+    [2,]  399  394  389  384  379
+    [3,]  398  393  388  383  378
+    [4,]  397  392  387  382  377
+    [5,]  396  391  386  381  376
+
+    , , 2, 1
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  375  370  365  360  355
+    [2,]  374  369  364  359  354
+    [3,]  373  368  363  358  353
+    [4,]  372  367  362  357  352
+    [5,]  371  366  361  356  351
+
+    , , 3, 1
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  350  345  340  335  330
+    [2,]  349  344  339  334  329
+    [3,]  348  343  338  333  328
+    [4,]  347  342  337  332  327
+    [5,]  346  341  336  331  326
+
+    , , 4, 1
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  325  320  315  310  305
+    [2,]  324  319  314  309  304
+    [3,]  323  318  313  308  303
+    [4,]  322  317  312  307  302
+    [5,]  321  316  311  306  301
+
+    , , 1, 2
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  300  295  290  285  280
+    [2,]  299  294  289  284  279
+    [3,]  298  293  288  283  278
+    [4,]  297  292  287  282  277
+    [5,]  296  291  286  281  276
+
+    , , 2, 2
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  275  270  265  260  255
+    [2,]  274  269  264  259  254
+    [3,]  273  268  263  258  253
+    [4,]  272  267  262  257  252
+    [5,]  271  266  261  256  251
+
+    , , 3, 2
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  250  245  240  235  230
+    [2,]  249  244  239  234  229
+    [3,]  248  243  238  233  228
+    [4,]  247  242  237  232  227
+    [5,]  246  241  236  231  226
+
+    , , 4, 2
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  225  220  215  210  205
+    [2,]  224  219  214  209  204
+    [3,]  223  218  213  208  203
+    [4,]  222  217  212  207  202
+    [5,]  221  216  211  206  201
+
+    , , 1, 3
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  200  195  190  185  180
+    [2,]  199  194  189  184  179
+    [3,]  198  193  188  183  178
+    [4,]  197  192  187  182  177
+    [5,]  196  191  186  181  176
+
+    , , 2, 3
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  175  170  165  160  155
+    [2,]  174  169  164  159  154
+    [3,]  173  168  163  158  153
+    [4,]  172  167  162  157  152
+    [5,]  171  166  161  156  151
+
+    , , 3, 3
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  150  145  140  135  130
+    [2,]  149  144  139  134  129
+    [3,]  148  143  138  133  128
+    [4,]  147  142  137  132  127
+    [5,]  146  141  136  131  126
+
+    , , 4, 3
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  125  120  115  110  105
+    [2,]  124  119  114  109  104
+    [3,]  123  118  113  108  103
+    [4,]  122  117  112  107  102
+    [5,]  121  116  111  106  101
+
+    , , 1, 4
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  100   95   90   85   80
+    [2,]   99   94   89   84   79
+    [3,]   98   93   88   83   78
+    [4,]   97   92   87   82   77
+    [5,]   96   91   86   81   76
+
+    , , 2, 4
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]   75   70   65   60   55
+    [2,]   74   69   64   59   54
+    [3,]   73   68   63   58   53
+    [4,]   72   67   62   57   52
+    [5,]   71   66   61   56   51
+
+    , , 3, 4
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]   50   45   40   35   30
+    [2,]   49   44   39   34   29
+    [3,]   48   43   38   33   28
+    [4,]   47   42   37   32   27
+    [5,]   46   41   36   31   26
+
+    , , 4, 4
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]   25   20   15   10    5
+    [2,]   24   19   14    9    4
+    [3,]   23   18   13    8    3
+    [4,]   22   17   12    7    2
+    [5,]   21   16   11    6    1
+
+Whew!!!
+
+Okay, now to the other questions:
+
+**Directions, continued:** *Given the matrix, what would the following return?*
+
+    1) a[1, 1, 1, 2]
+
+    [1] 300
+
+    2) a[2, 3, 2, ]
+
+    [1] 364 264 164  64
+
+    3) a[1:5, 1:5, 3, 3]
+
+          [,1] [,2] [,3] [,4] [,5]
+    [1,]  150  145  140  135  130
+    [2,]  149  144  139  134  129
+    [3,]  148  143  138  133  128
+    [4,]  147  142  137  132  127
+    [5,]  146  141  136  131  126
+
+## Module 4: Challenge 4
+
+**Directions:** *Create a list representing this (simplified) primate taxonomy.*
+
+Primate time! Yay!
+
+#nice!
+
+So, worked through this a lot, and was able to nest all the different taxonomic levels within their appropriate hierarchies, but the final primate list just lists all the elements of all the other lists. Which is great, but it would be interesting to see how you could maybe make something that would also show these intermediate levels? Either way, here was what my code looked like:
+
+    > Platyrrhini <-c("Cebidae, Atelidae, Pitheciidae")
+
+    > Platyrrhini
+
+    [1] "Cebidae, Atelidae, Pitheciidae"
+
+    > Platyrrhini <-c("Cebidae", "Atelidae", "Pitheciidae")
+
+    > Platyrrhini
+
+    [1] "Cebidae"     "Atelidae"    "Pitheciidae"
+
+    > Catarrhini <-c("Cercopthecidae", "Hylobatidae", "Hominoidae")
+
+    > Catarrhini
+
+    [1] "Cercopthecidae" "Hylobatidae"    "Hominoidae"
+
+    > Anthropoidea <-c(Platyrrhini, Catarrhini)
+
+    > Anthropoidea
+
+    [1] "Cebidae"        "Atelidae"       "Pitheciidae"    "Cercopthecidae" "Hylobatidae"    "Hominoidae"
+
+    > Tarsioidea <-c("Tarsiidae")
+
+    > Haplorhini <-c(Anthropoidea, Tarsioidea)
+
+    > Haplorhini
+
+    [1] "Cebidae"        "Atelidae"       "Pitheciidae"    "Cercopthecidae" "Hylobatidae"    "Hominoidae"
+
+    [7] "Tarsiidae"
+
+    > Lorisoidea <-c("Lorisidae", "Galagidae")
+
+    > Lorisoidea
+
+    [1] "Lorisidae" "Galagidae"
+
+    > Lemuroidea <-c("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
+
+    > Lemuroidea
+
+    [1] "Cheirogaleidae" "Lepilemuridae"  "Indriidae"      "Lemuridae"      "Daubentoniidae"
+
+    > Strepsirhini <-c(Lorisoidea, Lemuroidea)
+
+    > Strepsirhini
+
+    [1] "Lorisidae"      "Galagidae"      "Cheirogaleidae" "Lepilemuridae"  "Indriidae"      "Lemuridae"
+
+    [7] "Daubentoniidae"
+
+    > Primates <-c(Haplorhini, Strepsirhini)
+
+    > Primates
+
+    [1] "Cebidae"        "Atelidae"       "Pitheciidae"    "Cercopthecidae" "Hylobatidae"    "Hominoidae"
+
+    [7] "Tarsiidae"      "Lorisidae"      "Galagidae"      "Cheirogaleidae" "Lepilemuridae"  "Indriidae"
+
+    [13]"Lemuridae"      "Daubentoniidae"
+
+#Yeah I was not sure if Chris wanted us to list these primates in a leveled taxonomy so I attempted to do so. My final code was long and complex but I essentially worked backward after assigning each variable to string them together using the list() function. You can check out my final code since I shared my html with ya.
+
+## Module 4: Challenge 5
+
+**Directions:** *Store the following numbers as a 5 x 3 matrix: 3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2. Be sure to fill the matrix ROWWISE*
+
+    > challenge_five <-matrix(data=c(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2),nrow=5,ncol=3,byrow=TRUE)
+
+    > challenge_five
+
+          [,1] [,2] [,3]
+    [1,]    3    0    1
+    [2,]   23    1    2
+    [3,]   33    1    1
+    [4,]   42    0    1
+    [5,]   41    0    2
+
+**Directions, continued:** *Then, do the following:*
+
+    1) Coerce the matrix to a data frame.*
+
+    > df_five <-as.data.frame(as.matrix(challenge_five))
+
+    > df_five
+
+      V1 V2 V3
+    1  3  0  1
+    2 23  1  2
+    3 33  1  1
+    4 42  0  1
+    5 41  0  2
+
+    2) As a data frame, coerce the second column to be logical-valued*
+
+    > new_df <- df_five[df_five$V2 == "0",]
+
+    > new_df
+
+        V1 V2 V3
+    1  3  0  1
+    4 42  0  1
+    5 41  0  2
+
+    Not sure if this is exactly what we were trying to get at? But returned only those with "0" in V2
+
+    3) As a data frame, coerce the third column to be factor-valued*
+
+    Honestly, not sure what to do for this one? I looked up a bunch of information for factor and it seems like
+    I need to use an "as.factor" in there somewhere but not sure what the whole line of code would like? Will need to
+    look at this further.
+
+#ok this confused me to. What you need to do is assign each column "value" using the as.value(). value can be substituted with logical, numberic, factor ect so it looks something like this example: V3<-data.frame(V1 = as.numeric(1:5), V2 = as.numeric(1:5), V3 = as.factor(1:5), stringsAsFactors = FALSE). I did not string the code as factors cause I wanted to maintain the matrix.
+
+**FIVE BIGGEST CHALLENGES**
+
+#I totallly forgot about this parts oops.
+
+1. Not sure why I had an error when I attempted to knit R chunks into R Markdown. It shows that the chunk runs
+
+successfully in the R Studio workspace and on the console and that the values are saved in the Environment, but then
+
+an error saying that the object is not found.
+
+#I don't understand knitting so I am planning on asking Chris on Monday during class? I don't have time to go to his office hours unfortunately.
+
+2. Learning R syntax. It is not inutiitve and I feel like I have to learn the syntax for each command and even
+
+reading the help documents still leaves a lot of questions.
+
+#Not necessarily for each command, but each package has its own separate commands. Some packages are more useful than others and if you type in command(help) where the command is the function you do not understand, a help page will appear. Learning how to read this help page is truly useful as the help pages are more standardized. Also the internet is our friend.
+
+3. Knowing what to google to answer questions. I just do not know enough yet to even know what to google!
+
+#fair. same. learning curve.
+
+4. The last parts of Challenge 5. I googled how to "coerce columns," etc. and found some information. Seemed I needed
+
+to do something with "as.logic," and "as.factor" but again, not sure what all of the elements of the syntax for this
+
+should be.
+
+5. Was not able to do a list with levels for the Primate taxonomy challenge.
