@@ -15,7 +15,8 @@ knitr::opts_chunk$set(echo = FALSE, error = TRUE)
 **Directions:** *First, create a vector of 1 word character strings comprising the first line of the novel Ulysses, by James Joyce: “Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed.”*
 
 For this, I made a vector with each of the words in the sentence as a different element:
-``` {r ulysses <- c("Stately", "plump", "Buck", "Mulligan", "came", "from", "the", "stairhead", "bearing", "a", "bowl", "of", "lather", "on", "which", "a", "mirror", "and", "a", "razor", "lay", "crossed")}
+``` {r}
+ulysses <- c("Stately", "plump", "Buck", "Mulligan", "came", "from", "the", "stairhead", "bearing", "a", "bowl", "of", "lather", "on", "which", "a", "mirror", "and", "a", "razor", "lay", "crossed")
 ulysses
 ```
 Since when I knit to html I am getting an error for some reason, even though it is showing in my workspace (will put that as one of my biggest challenges), here is what my code looks like (also, if you open on this in R studio and not html, you should be able to see the code chunk and run it to see that it works:
