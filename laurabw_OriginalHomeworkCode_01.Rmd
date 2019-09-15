@@ -31,6 +31,8 @@ Since when I knit to html I am getting an error for some reason, even though it 
 
 **Directions, continued:** *Then, extract every third element of this vector.*
 
+#instead of writing out every word, you can create a list using the list() function. Then copy and paste the line into the list function. Next you can use the stringr package to split the string up. This saves a lot of typing. 
+
 While I did read the hints, because I had already written the string as separate characters and R Studio showed me that it was a 22 element vector in the "values" section of the "Environment" tab, I simply asked wrote a command to bring up every third element manually:
 
 ```{r ulysses_third_word <- c(3, 6, 9, 12, 15, 18, 21)}
@@ -43,12 +45,15 @@ More errors in the Rmarkdown html, but here is what it looks like in the workspa
     ulysses[ulysses_third_word]
 
     [1] "Buck"    "from"    "bearing" "of"      "which"   "and"     "lay"   
+#smart. I created a vector instead with three columns and extracted the third column. Honestly this looks easier. 
 
 I am guessing there are more efficient ways to do this, but hey, this worked!
 
 ## Module 4: Challenge 2
 
 **Directions:** *Using this matrix (again errors, and sorry the written out one looks so awful):*
+
+#yo I don't understand knitting at all anyway and this is very readable so you are alllll good. 
 
 ```{r m <- matrix(data=1:80,nrow=8,ncol=10,byrow=FALSE)}
 m
@@ -458,6 +463,8 @@ Okay, now to the other questions:
     
 Primate time! Yay!
 
+#nice!
+
 So, worked through this a lot, and was able to nest all the different taxonomic levels within their appropriate hierarchies, but the final primate list just lists all the elements of all the other lists. Which is great, but it would be interesting to see how you could maybe make something that would also show these intermediate levels? Either way, here was what my code looked like:
 
     > Platyrrhini <-c("Cebidae, Atelidae, Pitheciidae")
@@ -524,6 +531,8 @@ So, worked through this a lot, and was able to nest all the different taxonomic 
 
     [13]"Lemuridae"      "Daubentoniidae"    
     
+#Yeah I was not sure if Chris wanted us to list these primates in a leveled taxonomy so I attempted to do so. My final code was long and complex but I essentially worked backward after assigning each variable to string them together using the list() function. You can check out my final code since I shared my html with ya. 
+    
 ## Module 4: Challenge 5
 
 **Directions:** *Store the following numbers as a 5 x 3 matrix: 3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2. Be sure to fill the matrix ROWWISE*
@@ -573,7 +582,11 @@ So, worked through this a lot, and was able to nest all the different taxonomic 
     I need to use an "as.factor" in there somewhere but not sure what the whole line of code would like? Will need to
     look at this further.
     
+#ok this confused me to. What you need to do is assign each column "value" using the as.value(). value can be substituted with logical, numberic, factor ect so it looks something like this example: V3<-data.frame(V1 = as.numeric(1:5), V2 = as.numeric(1:5), V3 = as.factor(1:5), stringsAsFactors = FALSE). I did not string the code as factors cause I wanted to maintain the matrix. 
+
 **FIVE BIGGEST CHALLENGES**
+
+#I totallly forgot about this parts oops. 
 
 1. Not sure why I had an error when I attempted to knit R chunks into R Markdown. It shows that the chunk runs
 
@@ -581,11 +594,17 @@ successfully in the R Studio workspace and on the console and that the values ar
 
 an error saying that the object is not found.
 
+#I don't understand knitting so I am planning on asking Chris on Monday during class? I don't have time to go to his office hours unfortunately. 
+
 2. Learning R syntax. It is not inutiitve and I feel like I have to learn the syntax for each command and even 
 
 reading the help documents still leaves a lot of questions.
 
+#Not necessarily for each command, but each package has its own separate commands. Some packages are more useful than others and if you type in command(help) where the command is the function you do not understand, a help page will appear. Learning how to read this help page is truly useful as the help pages are more standardized. Also the internet is our friend. 
+
 3. Knowing what to google to answer questions. I just do not know enough yet to even know what to google!
+
+#fair. same. learning curve. 
 
 4. The last parts of Challenge 5. I googled how to "coerce columns," etc. and found some information. Seemed I needed
 
